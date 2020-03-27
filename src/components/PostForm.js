@@ -69,4 +69,4 @@ const mapStateToProps = state => ({
     alert: state.app.alert
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm)

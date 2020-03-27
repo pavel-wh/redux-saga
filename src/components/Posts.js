@@ -4,10 +4,10 @@ import Post from './Post'
 
 const Posts = ({syncPosts}) => {
 	if (!syncPosts.length) {
-		return <p className="text-center">Постов нет...</p>;
+		return <p className="text-center">Постов нет...</p>
 	}
-	return syncPosts.map(post => <Post post={post} key={post.id} />).reverse();
-};
+	return syncPosts.map(post => <Post post={post} key={post.id} />).reverse()
+}
 
 const mapStateToProps = state => {
     // console.log(state)
@@ -16,4 +16,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(Posts);
+export default connect(mapStateToProps, null)(Posts)

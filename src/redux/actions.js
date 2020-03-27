@@ -34,7 +34,7 @@ export function showAlert(message) {
 
         setTimeout(() => {
             dispatch(hideAlert())
-        }, 3000);
+        }, 3000)
     }
 }
 

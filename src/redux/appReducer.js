@@ -28,6 +28,6 @@ export const appReducer = (state = initialState, action) => {
         alert: null
       }
 		default:
-			return state;
+			return state
   }
 }
