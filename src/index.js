@@ -1,13 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {applyMiddleware, createStore, compose} from 'redux'
+import {Provider} from 'react-redux'
+import thunk from 'redux-thunk'
+import logger from "redux-logger";
+import {forbiddenWordMiddleware} from './redux/middleware'
+import './index.css'
+import App from './App'
+import * as serviceWorker from './serviceWorker'
+import {rootReducer} from './redux/rootReducer'
+
+const store = createStore(
+	rootReducer,
+	compose(
+		applyMiddleware(thunk, logger, forbiddenWordMiddleware),
+		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+	)
+);
+
+const app = (
+  <Provider store={store}>
+    <App />
+  </Provider>
+)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  app,
   document.getElementById('root')
 );
 
